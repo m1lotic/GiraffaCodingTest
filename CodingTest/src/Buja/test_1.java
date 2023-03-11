@@ -1,4 +1,4 @@
-package Buja;
+package Buja; // syntax error
 
 public class test_1 {
 
@@ -12,6 +12,19 @@ public class test_1 {
 	//alt+방향키 : 코드 순서 바꾸기
 	
 	public static void main(String[] args) {
+		class Solution {
+		    public int solution(int n) {
+		        int answer = 0;
+		        for(int i=1; i<=n;i++)
+		        {
+		            if(n%i==0)
+		                answer +=i;
+		        }
+		        return answer;
+		    }
+		}
+		
+		
 		
 
 	}
