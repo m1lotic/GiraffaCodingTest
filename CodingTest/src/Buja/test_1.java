@@ -20,7 +20,7 @@ public class test_1 {
 		            if(n%i==0)
 		                answer +=i;
 		        }
-		        return answer;
+		        return answer; // test
 		    }	
 		}
 		
