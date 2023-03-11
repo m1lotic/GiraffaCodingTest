@@ -1,5 +1,6 @@
 package Minook;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class test_1 {
@@ -15,7 +16,7 @@ public class test_1 {
 	
 	public static void main(String[] args) {
 
-		System.out.println(solution());
+		System.out.println(solution(123));
 
 	}
 	
@@ -96,7 +97,79 @@ public class test_1 {
 //        
 //        return answer;
 //    }
-    
-    
+	
+	//6. 자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요. 예를들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
+	
+//	public int[] solution(long n) {
+//        String s = String.valueOf(n);
+//        int[] answer = new int[s.length()];
+//        for(int i=0; i<s.length(); i++){
+//        answer[i] = Integer.parseInt(s.substring(s.length() - (i+1), s.length()-i));
+//        }
+//        return answer;
+//    }
+
+	//7. 임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+	//n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
+	
+//	 public long solution(long n) {
+//	        long answer = 0;
+//	        for(long x = 1; x*x<=n; x++){
+//	            if(n==x*x){
+//	                answer = (x+1)*(x+1);
+//	            }else{
+//	                answer = -1;
+//	            }
+//	        }
+//	        return answer;
+//	    }  
+	
+	//8. 대문자와 소문자가 섞여있는 문자열 s가 주어집니다. 
+	//s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False를 return 하는 solution를 완성하세요. 
+	//'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다. 단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
+	
+//	boolean solution(String s) {
+//        boolean answer = true;
+//        int p=0;
+//        int y=0;
+//        for(int i=0; i<s.length(); i++){
+//        if(s.substring(i,i+1).equals("p")||s.substring         (i,i+1).equals("P")){p+=1;}
+//        else if(s.substring(i,i+1).equals("y")||s.substring(i,i+1).equals("Y")){y+=1;}
+//        }
+//        if(p==y){
+//            answer = true;
+//        }else{
+//            answer = false;
+//        }
+//        
+//        return answer;
+//    }
+	
+	//9. 	
+	 public static long solution(long n) {
+	        long answer = 0;
+	        
+	        String s = "";
+	        ArrayList<Integer> arr = new ArrayList<Integer>();
+	        for(int i=0; i<=String.valueOf(n).length(); i++) {
+	         	arr.add((int)(n%10));
+	         	n /= 10;
+	        }
+	        arr.add((int)n);
+	        
+	        int m = arr.get(0);
+	        
+	        int[] arri = new int[arr.size()];
+	        for(int i=0; i<=arri.length; i++) {
+	        for(int j=0; j<=arr.size(); j++) {
+	        	if(arr.get(j)>m) {
+	        		m = arr.get(j);
+	        	}
+	        }
+	        	arri[i] = m;
+	        }
+
+	        return answer;
+	    }
 	
 }
