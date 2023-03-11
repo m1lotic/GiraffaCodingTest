@@ -21,7 +21,7 @@ public class test_1 {
 		                answer +=i;
 		        }
 		        return answer;
-		    }
+		    }	
 		}
 		
 		
