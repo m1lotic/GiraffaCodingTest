@@ -76,7 +76,7 @@ public class Solution {
     }
 }
 
-/* 5. 함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. */
+/* 5. 함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. 
  * class Solution {
     public long[] solution(int x, int n) {
         long[] answer = new long[n];
@@ -89,9 +89,41 @@ public class Solution {
     }
 }
  */
+/*
+6. 자연수 뒤집어 배열로 만들기
 */
+	/* 7. 문자열 내 p와 y의 개수
+class Solution {
+    boolean solution(String s) {
+        boolean answer = true;
+        int p =0;
+        int y= 0;
 
+        for(int i =0;i<s.length();i++)
+        {
+            if(((s.charAt(i)) == 'p')|| ((s.charAt(i)) == 'P'))
+            {
+                p+=1;
+            }
+            else if(((s.charAt(i)) == 'y')|| ((s.charAt(i)) == 'Y'))
+            {
+               y+=1;
+            }
+            
+        }
+        
+        if(p==y)
+        {
+            answer = true;
+        }
+        else
+        {
+            answer=false;
+        }
 
+        return answer;
+    }
+}
 }
 
 	
