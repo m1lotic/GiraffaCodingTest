@@ -124,6 +124,23 @@ class Solution {
         return answer;
     }
 }
+
+/* 8. 정수 제곱근 판별
+ * class Solution {
+    public long solution(long n) {
+
+        for(long i=0;i<500000000;i++)
+        {
+            if((i*i)==n)
+            {
+                return ((i+1)*(i+1));
+            }
+        }
+        return -1;
+    }
+}
+*/
+ */
 }
 
 	
