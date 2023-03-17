@@ -1,7 +1,5 @@
 package Buja; // syntax error
-
 public class test_1 {
-
 	/*인코딩 (한글,영문,한자,일본어 -> 기계어)방식 (한글. UTF-8, EUC-KR)
 	EUC-KR(완성형,박)에서 UTF-8(조합형,ㅂ+ㅏ+ㄱ)로 넘어갈때 코딩이 깨질수도 있음. 미리바꿔야함.
 	window - preference - workspace - utf8 
@@ -58,7 +56,6 @@ public class test_1 {
 	
 	/*4. 자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
 import java.util.*;
-
 public class Solution {
     public int solution(int n) {
         int answer = 0;
@@ -71,11 +68,9 @@ public class Solution {
         }
         // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
         System.out.println("Hello Java");
-
         return answer;
     }
 }
-
 /* 5. 함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. 
  * class Solution {
     public long[] solution(int x, int n) {
@@ -98,7 +93,6 @@ class Solution {
         boolean answer = true;
         int p =0;
         int y= 0;
-
         for(int i =0;i<s.length();i++)
         {
             if(((s.charAt(i)) == 'p')|| ((s.charAt(i)) == 'P'))
@@ -120,15 +114,12 @@ class Solution {
         {
             answer=false;
         }
-
         return answer;
     }
 }
-
 /* 8. 정수 제곱근 판별
  * class Solution {
     public long solution(long n) {
-
         for(long i=0;i<500000000;i++)
         {
             if((i*i)==n)
@@ -140,7 +131,22 @@ class Solution {
     }
 }
 */
- */
+/*	9. 나머지가 1이 되는 수 찾기
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        for(int x=1;x<=1000000;x++)
+        {
+            if(n%x==1)
+            {
+                answer =x;
+                break;
+            }
+        }
+        return answer; 
+    } 
 }
+*/
+//}
 
-	
+
