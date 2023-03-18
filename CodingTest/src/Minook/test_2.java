@@ -1,5 +1,7 @@
 package Minook;
 
+import java.util.ArrayList;
+
 public class test_2 {
 
 	public static void main(String[] args) {
@@ -114,4 +116,74 @@ public class test_2 {
 //        int[] result = answer.stream().mapToInt(Integer::intValue).toArray();
 //        return result;
 //    }
+	
+	//7.전화번호가 문자열 phone_number로 주어졌을 때, 전화번호의 뒷 4자리를 제외한 
+//	나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution을 완성해주세요.
+	
+//	  public String solution(String phone_number) {
+//	        String answer = "";
+//	        for(int i = 0; i<phone_number.length(); i++){
+//	            if(i>=phone_number.length()-4){
+//	                 answer += phone_number.substring(i,i+1);   
+//	            }else{
+//	                answer += "*";
+//	            }
+//	        }
+//	        return answer;
+//	    }
+
+	//8.음양 더하기
+	
+//    public int solution(int[] absolutes, boolean[] signs) {
+//        int answer = 0;
+//        
+//        for(int i = 0; i<absolutes.length; i++){
+//            if(signs[i]){
+//                answer += absolutes[i];   
+//            }else{
+//                answer -= absolutes[i];
+//            }
+//        }
+//        
+//        return answer;
+//    }
+
+	//9.정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요. 
+//	단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요 	
+	
+//    public int[] solution(int[] arr) {
+//        int min = arr[0];
+//        int x = 0;
+//        ArrayList<Integer> result = new ArrayList<Integer>();
+//        if(arr.length==1){
+//        	result.add(-1);
+//        }else{
+//            for(int i =0; i<arr.length; i++){
+//                if(arr[i]<=min){
+//                min = arr[i];
+//                x = i;
+//                }
+//            }
+//            for(int j=0; j<arr.length; j++){
+//                if(j!=x){
+//                result.add(arr[j]);
+//                }
+//            }
+//        }
+//        int[] answer = result.stream().mapToInt(Integer::intValue).toArray();
+//        return answer;
+//    }
+	
+	//10. 0부터 9까지의 숫자 중 일부가 들어있는 정수 배열 numbers가 매개변수로 주어집니다. 
+//	numbers에서 찾을 수 없는 0부터 9까지의 숫자를 모두 찾아 더한 수를 return 하도록 solution 함수를 완성해주세요.
+
+//	 public int solution(int[] numbers) {
+//	        int answer = 0;
+//	        for(int i = 0; i<numbers.length; i++){
+//	            answer += numbers[i];
+//	        }
+//	        answer = 45 - answer; 
+//	        return answer;
+//	    }
+
 }
