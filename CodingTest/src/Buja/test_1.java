@@ -65,7 +65,7 @@ public class Solution {
         
         while(n>0)
         {
-            answer = answer + (n%10);
+            answer += (n%10);
             
                 n /= 10;
         }
@@ -89,6 +89,20 @@ public class Solution {
  */
 /*
 6. 자연수 뒤집어 배열로 만들기
+import java.util.*;
+
+class Solution {
+    public int[] solution(long n) {
+        int[] answer = new int[String.valueOf(n).length()];
+        String numString = Long.toString(n);
+        
+        for(int i =0 ;i<answer.length;i++)
+        {
+             answer[i] = Integer.parseInt(numString.substring(answer.length-i-1, answer.length-i));
+        }
+        return answer;
+    }
+}
 */
 	/* 7. 문자열 내 p와 y의 개수
 class Solution {
