@@ -12,6 +12,6 @@ public class test_1 {
 	//alt+방향키 : 코드 순서 바꾸기
 	
 	public static void main(String[] args) {
-		System.out.println("확인");
+		System.out.println("확인 1차");
 	}
 }
