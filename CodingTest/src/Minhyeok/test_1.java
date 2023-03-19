@@ -12,8 +12,6 @@ public class test_1 {
 	//alt+방향키 : 코드 순서 바꾸기
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println("완료");
 	}
-
 }
