@@ -18,7 +18,7 @@ class Solution {
             if(s.matches("[0-9]+")) // 살면서 정규식 첨써봄
             {
                 answer =true;
-            }
+            } 
         }
         return answer;
     }
