@@ -9,7 +9,14 @@ public class test_1 {
 	//ctrl+alt+방향키(위,아래) : 코드복사(커서위치줄의 코드를 밑이나 위에 복사)
 	//alt+방향키 : 코드 순서 바꾸기
 	
-	/* 11.
+	/* 11. 문자열을 정수로 바꾸기
+	 * class Solution {
+    public int solution(String s) {
+        int answer = 0;
+        answer = Integer.parseInt(s);
+        return answer;
+    }
+}
 	 
 	 */
 //}
