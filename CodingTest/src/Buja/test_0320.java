@@ -25,7 +25,7 @@ class Solution {
 }
 	 
 	 */
-	/* 3월 21일 부족한 금액 계산하기
+	/* 3월 21일 부족한 금액 계산하기 
 	 * class Solution {
     public long solution(int price, int money, int count) {
         long answer = 0;
