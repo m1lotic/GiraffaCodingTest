@@ -39,6 +39,29 @@ class Solution {
     }
 }
 	 */
+	
+	/* 3월 22일 행렬의 덧셈
+	 * class Solution {
+    public int[][] solution(int[][] arr1, int[][] arr2) {
+        int[][] answer = new int[arr1.length][arr2[0].length];
+        
+        if(arr1.length==1){
+            answer[0][0] = arr1[0][0]+arr2[0][0];
+        }
+        else{
+            for(int i=0;i<arr1.length;i++)
+            {
+                for(int j=0;j<arr2[0].length;j++)
+                {
+                   answer[i][j] = arr1[i][j]+arr2[i][j]; 
+                }
+            }
+        }
+        
+        return answer;
+    }
+}
+	 */
 //}
  
 
