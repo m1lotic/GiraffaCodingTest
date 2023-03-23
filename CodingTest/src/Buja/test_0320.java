@@ -62,6 +62,61 @@ class Solution {
     }
 }
 	 */
+	
+	/* 3월 23일 직사각형 별찍기
+	 * 
+	 * import java.util.Scanner;
+
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        
+        for(int i=0;i<b;i++)
+        {
+            for(int j=0;j<a;j++)
+            {
+                System.out.print('*');
+            }
+            System.out.println();
+        }
+        
+    }
+}
+*/
+	
+	/* 3월 24일 최대공약수와 최소공배수 (정모로 인해 3월 23일 작성)ㄴ
+	 * 
+	 * class Solution {
+    public int[] solution(int n, int m) {
+        int[] answer = new int[2];
+ 
+        if(n>=m)
+        {
+            for(int i=1 ; i<=m ; i++)
+            {
+                if(n%i==0 && m%i==0){
+                     answer[0]=i;
+                     answer[1]=(n/i)*(m/i)*i;
+                }
+                  
+            }
+        }
+        else
+        {
+             for(int i=1 ; i<=n ; i++)
+            {
+                if(m%i==0&& n%i==0){
+                    answer[0]=i;
+                    answer[1]=(n/i)*(m/i)*i;
+                    }
+            }
+        }
+        return answer;
+    }
+}
+	 */
 //} 
  
 
