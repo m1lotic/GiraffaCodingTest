@@ -1,5 +1,5 @@
 package Buja; // syntax error
-public class test_0320 {
+public class test_0327 {
 	/*인코딩 (한글,영문,한자,일본어 -> 기계어)방식 (한글. UTF-8, EUC-KR)
 	EUC-KR(완성형,박)에서 UTF-8(조합형,ㅂ+ㅏ+ㄱ)로 넘어갈때 코딩이 깨질수도 있음. 미리바꿔야함.
 	window - preference - workspace - utf8 
