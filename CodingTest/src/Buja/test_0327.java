@@ -17,7 +17,7 @@ class Solution {
         if(s.length()==4 || s.length()==6){
             if(s.matches("[0-9]+")) // 살면서 정규식 첨써봄
             {
-                answer =true;
+                answer =true; 
             } 
         }
         return answer;
