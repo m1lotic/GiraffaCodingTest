@@ -45,8 +45,31 @@ public class Solution {
 }
 	 */
 	
-	/* 3월 28일
-	 * 
+	/* 3월 28일 3진법 뒤집기
+	 * class Solution {
+    public long solution(int n) {
+        long answer = 0;
+        String strn = String.valueOf(n);
+        long Jin_3 = Long.parseLong(Long.toString(n,3));
+        long Jin_3_Reverse =0;
+        int i=0;
+        
+        while(Jin_3!=0){
+            Jin_3_Reverse = Jin_3_Reverse*10+Jin_3%10;
+            Jin_3 /=10;
+        }     
+                while(Jin_3_Reverse!=0){
+            answer+=Jin_3_Reverse%10*Math.pow(3,i);
+            Jin_3_Reverse /=10;
+                    i++;
+        }      
+ 
+       
+        return answer;
+        
+        
+    }
+}
 	 */
 //} 
  
