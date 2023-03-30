@@ -71,6 +71,95 @@ public class Solution {
     }
 }
 	 */
+	
+	/*3월 29일 이상한 문자 만들기(실패)
+	 * import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        String[] munja = s.split("");
+        String[] ascii = new String[munja.length];
+        int blank = 1; // 0 = odd(홀수), 1= even(짝수)
+        
+        for (int i = 0; i < s.length(); i++) {
+            ascii[i] = Integer.toString((int)s.charAt(i)); 
+            
+                if (i % 2 == 0) { //짝수
+                    if (Integer.parseInt(ascii[i]) > 97) {
+                        ascii[i] = Integer.toString((int)s.charAt(i) - 32);
+                    }
+                } else { // 홀수
+                    if (Integer.parseInt(ascii[i]) > 65 && Integer.parseInt(ascii[i]) < 90) {
+                        ascii[i] = Integer.toString((int)s.charAt(i) + 32);
+                    }
+                }
+                
+                answer += (char)Integer.parseInt(ascii[i]); 
+           
+            }
+        
+        
+        return answer; 
+    }
+}
+
+	 */
+	
+	/* 3월 30일 예산(오름차순 정렬로 해결)
+	 * import java.util.*;
+class Solution {
+    public int solution(int[] d, int budget) {
+        int answer = 0;
+        int sum=0;
+        Arrays.sort(d);
+             
+         for(int i=0;i<d.length;i++)
+        {
+            if(budget<d[i])
+            {
+                break;
+            }
+            System.out.print(d[i]);
+            budget -=d[i];
+            answer+=1;
+        }
+        
+        
+        return answer;
+    }
+}
+	 */
+	/* 3월 31일 시저 암호(푸는 법을 몰겟음)
+	 * class Solution {
+    public String solution(String s, int n) {
+        String answer = "";
+        String[] arr = new String[s.length()];
+        
+        for(int i=0;i<s.length();i++)
+        {
+            
+            
+            arr[i]=Integer.toString(((int)s.charAt(i))+n);
+            if(arr[i].equals('$'))
+            {
+             answer += " ";
+                continue;
+            }
+            if(Integer.parseInt(arr[i]) >= 122)
+            {
+                arr[i]=Integer.toString((int)s.charAt(i)-26);
+            }
+            
+            System.out.print(arr[i]+" ");
+            answer += (char)Integer.parseInt(arr[i]);
+        }
+        
+        
+        return answer;
+    }
+}
+	 */
 //} 
  
 
