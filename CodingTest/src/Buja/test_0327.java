@@ -130,36 +130,52 @@ class Solution {
     }
 }
 	 */
-	/* 3월 31일 시저 암호(푸는 법을 몰겟음)
-	 * class Solution {
-    public String solution(String s, int n) {
-        String answer = "";
-        String[] arr = new String[s.length()];
-        
-        for(int i=0;i<s.length();i++)
-        {
-            
-            
-            arr[i]=Integer.toString(((int)s.charAt(i))+n);
-            if(arr[i].equals('$'))
-            {
-             answer += " ";
-                continue;
-            }
-            if(Integer.parseInt(arr[i]) >= 122)
-            {
-                arr[i]=Integer.toString((int)s.charAt(i)-26);
-            }
-            
-            System.out.print(arr[i]+" ");
-            answer += (char)Integer.parseInt(arr[i]);
-        }
-        
-        
-        return answer;
-    }
-}
+	/* 3월 31일 시저 암호(민욱이 코드 스타일 반영 -> 수정일 4월 3일)
+	class Solution {
+	    public String solution(String s, int n) {
+	        String answer = "";
+	        char[] charArr = s.toCharArray();
+	        
+	        for(int i=0;i<charArr.length;i++)
+	        {
+	            if(charArr[i]==' ') // 공백처리
+	            {
+	                answer += charArr[i];
+	            }
+	            // 소문자 65~ 90 대문자 97~122
+	            if(charArr[i]<=90 && charArr[i]>=65)
+	            {
+	                if(charArr[i]+n>90)  answer += (char)(charArr[i]-26+n);
+	                else                 answer += (char)(charArr[i]+n);
+	            }
+	                if(charArr[i]<=97 && charArr[i]>=122)
+	            {
+	                if(charArr[i]+n>122)  answer += (char)(charArr[i]-26+n);
+	                else                  answer += (char)(charArr[i]+n);
+	            }
+	            
+	            
+	                        if(charArr[i]<=122 && charArr[i]>=97)
+	            {
+	                if(charArr[i]+n>122)  answer += (char)(charArr[i]-26+n);
+	                else                 answer += (char)(charArr[i]+n);
+	            }
+	                if(charArr[i]<=97 && charArr[i]>=122)
+	            {
+	                if(charArr[i]+n>122)  answer += (char)(charArr[i]-26+n);
+	                else                  answer += (char)(charArr[i]+n);
+	            }
+	        }
+	        
+	        
+	        
+	        
+	        return answer;
+	    }
+	}
+ 
 	 */
 //} 
- 
+	
+
 
