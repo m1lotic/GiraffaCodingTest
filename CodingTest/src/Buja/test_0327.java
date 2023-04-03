@@ -71,37 +71,47 @@ public class Solution {
     }
 }
 	 */
-	
-	/*3월 29일 이상한 문자 만들기(실패)
+
+	/*3월 29일 이상한 문자 만들기 (왜 되는지모름)
 	 * import java.util.*;
 
 class Solution {
-    public String solution(String s) {
-        String answer = "";
-        String[] munja = s.split("");
-        String[] ascii = new String[munja.length];
-        int blank = 1; // 0 = odd(홀수), 1= even(짝수)
-        
-        for (int i = 0; i < s.length(); i++) {
-            ascii[i] = Integer.toString((int)s.charAt(i)); 
-            
-                if (i % 2 == 0) { //짝수
-                    if (Integer.parseInt(ascii[i]) > 97) {
-                        ascii[i] = Integer.toString((int)s.charAt(i) - 32);
-                    }
-                } else { // 홀수
-                    if (Integer.parseInt(ascii[i]) > 65 && Integer.parseInt(ascii[i]) < 90) {
-                        ascii[i] = Integer.toString((int)s.charAt(i) + 32);
-                    }
-                }
-                
-                answer += (char)Integer.parseInt(ascii[i]); 
-           
-            }
-        
-        
-        return answer; 
-    }
+	public String solution(String s) {
+		String answer = "";
+		char[] word = s.toCharArray();
+		int odd = 1; // 0이 짝수임
+
+		for (int i = 0; i < word.length; i++) {
+			if (word[i] == ' ') {
+				answer += ' ';
+				odd = 0;
+			}
+
+			if (odd == 0) {
+				if (word[i] <= 90 && word[i] >= 65) // 대문자 검사
+				{
+					answer += (char) (word[i] + 32); // 대문자는 그대로
+
+				}
+				if (word[i] >= 97 && word[i] <= 122) // 소문자 검사
+				{
+					answer += (char) (word[i]); // 소문자를 대문자로
+				}
+				odd = 1;
+			} else if (odd == 1) {
+				if (word[i] <= 90 && word[i] >= 65) {
+					answer += (char) (word[i]);
+				}
+				if (word[i] >= 97 && word[i] <= 122) {
+					answer += (char) (word[i] - 32);
+				}
+				odd = 0;
+			}
+
+		}
+
+		return answer;
+	}
 }
 
 	 */
