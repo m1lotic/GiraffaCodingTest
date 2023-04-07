@@ -66,6 +66,29 @@ public class test_0403 {
     }
 }
 	 */
-//} 
-	
+	/* 4월 7일 보물지도
+	 * 
+	class Solution {
+	    public String[] solution(int n, int[] arr1, int[] arr2) {
+	        String[] answer2 = new String[n]; // 합치기용
+	        String[] answer3 = new String[n];// 글자 합치기용
 
+	         //2진수 비트 합치기
+	        for(int i=0;i<n;i++)
+	        {
+	            answer2[i] = String.format("%0" + n + "d", Long.parseLong(Long.toBinaryString(arr1[i] | arr2[i]))).replace(' ', '0'); 
+
+	          System.out.print(answer2[i]+" ");
+	        }
+	        //2진수 글자 합치기
+	        for(int i=0;i<n;i++) 
+	        {
+	               answer3[i] = answer2[i].replace('1','#').replace('0',' ');
+	        }
+	              
+	        return answer3;
+	    }
+	}
+	 * 
+	 */
+//} 
