@@ -66,7 +66,7 @@ public class test_0403 {
     }
 }
 	 */
-	/* 4월 7일 보물지도
+	/* 4월 5일 보물지도(4월 7일 해결)
 	 * 
 	class Solution {
 	    public String[] solution(int n, int[] arr1, int[] arr2) {
@@ -91,4 +91,25 @@ public class test_0403 {
 	}
 	 * 
 	 */
+	/*	4월 6일 숫자 문자열과 영단어(4월 7일 해결)
+	 * replaceAll도 있다. 다음에는 구글링해서 함써보자.
+	 * 
+	 * class Solution {
+	    public int solution(String s) {
+	        int answer = 0;
+	        String[] numbers = new String[]{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+	        String[] test = new String[1000];
+
+	        for(int i =0; i<10;i++)
+	        {
+	           s = s.replace(numbers[i],""+i) ;       
+	        }
+	            answer = Integer.parseInt(s);
+	        return answer;
+	    }
+	}
+	 * 
+	 * 
+	 */
 //} 
+
