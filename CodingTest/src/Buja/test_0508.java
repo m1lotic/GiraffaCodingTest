@@ -152,7 +152,7 @@ class Solution {
 		for (int i = 65; i <= 90; i++) 
 			alphabet.put((char) i, 1000); // 최소값을 찾아나가기 위한 큰 값
 
- 		// A부터 Z까지 keymap별로 몇 회를 입력해야 하는 지를 검사한다.
+ 		// A부터 Z까지 keymap별로 몇 회를 입력해야 하는 지를 검사한다. 
 		for (int i = 65; i <= 90; i++) // 알파벳 저장 최솟값
 		{
 
