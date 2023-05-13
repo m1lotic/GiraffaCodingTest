@@ -9,6 +9,7 @@ public class test_0508 {
 	//ctrl+alt+방향키(위,아래) : 코드복사(커서위치줄의 코드를 밑이나 위에 복사)
 	//alt+방향키 : 코드 순서 바꾸기
 	
+	// 둘만의 암호
 	/* 해결일 : 5월 9일
 	   문제점 : 프로그래밍 실력의 한계로 인해
 	   3중 for문으로 해결할 수 밖에 없었고
@@ -51,7 +52,8 @@ public class test_0508 {
 	}
 	
 	*/
-
+	
+     // 카드 뭉치
 	/* 해결일 : 5월 10일
 	   문제점 : 이 문제를 보자마자
 	         아 어차피 card1 card2 길이는 얼마안되니까
@@ -117,6 +119,75 @@ class Solution {
 				answer = "No";
 			}
 		}
+		return answer;
+	}
+}*/
+	
+	// 대충 만든 자판
+	/* 해결일 : 5월 14일
+	   문제점 : 어려운 문제라 시간이 좀 많이 걸렸다
+	   하루만에 푼 문제가 아니고 몇일에 걸쳐서 해결을 한 문제고
+	   아무리 생각해도 답이 안나와서 질문에 있는 반례 참고를 좀했다
+	   하다보니 코드 구조가 많이 복잡해졌다.
+	   keymap에서 한번 비교하는 로직
+	   targets에서 한번 비교하는 로직 2개가 구조는 비슷하긴하지만
+	   구현이 다르게 되어있다.
+	   이 문제는 반례처리를 하는 것이 중요한데,
+	   targets 배열 내 원소가 keymap 원소 중 일부만 들어있는(전부 다 만족 안하는)
+	   그런 case가 있어서 예외 처리를 했어야 했다.
+	   나는 처음 시작값을 1000이라는 가상의 값으로 잡고 시작해서
+	   1000보다 많은(일부만 만족하면 무조건 값이 더해졌을테니) 값일 경우
+	   모두 -1를 표출하도록 했으나,
+	   차후에는 값을 검색했을 때 없다면 exception을 띄어주는 그런 작업을 하는게
+	   더 나은 코딩 방법이라고 생각한다.
+	   
+	   
+import java.util.*;
+
+class Solution {
+	public int[] solution(String[] keymap, String[] targets) {
+		int[] answer = new int[targets.length];
+		int tmp = 0; // 임시저장값
+		Map<Character, Integer> alphabet = new HashMap<>(); // 알파벳 저장할 자리
+		for (int i = 65; i <= 90; i++)
+			alphabet.put((char) i, 1000); // 최소값을 찾아나가기 위한 큰 값
+
+		for (int i = 65; i <= 90; i++) // 알파벳 저장 최솟값
+		{
+
+			for (int k = 0; k < keymap.length; k++) {
+				tmp = 0;
+				for (int j = 0; j < keymap[k].length(); j++) {
+					tmp += 1;
+					// System.out.println("기준:"+(char)i +" "+keymap[k].charAt(j));
+					if (keymap[k].charAt(j) == (char) i) {
+						if (tmp < alphabet.get((char) i)) {
+							alphabet.put((char) i, tmp);
+							System.out.println((char) i + " " + tmp);
+							break;
+						}
+					}
+				}
+			}
+		}
+		// target 검사
+		for (int i = 65; i <= 90; i++) // 알파벳 저장 최솟값
+		{
+
+			for (int k = 0; k < targets.length; k++) {
+				for (int j = 0; j < targets[k].length(); j++) {
+					if (targets[k].charAt(j) == (char) i) {
+						answer[k] += alphabet.get((char) i);
+						// System.out.println((char)i+" "+answer[k]);
+					}
+				}
+			}
+		}
+
+		for (int k = 0; k < answer.length; k++)
+			if (answer[k] >= 1000)
+				answer[k] = -1;
+
 		return answer;
 	}
 }*/
