@@ -15,7 +15,7 @@ public class test_1 {
         int answer = 0;
         answer = Integer.parseInt(s);
         return answer;
-    }
+    } 
 }
 	 
 	 */

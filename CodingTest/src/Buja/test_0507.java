@@ -18,7 +18,7 @@ public class test_0507 {
    MAP 사용법 자료만 가지고 아래와 같이 구현하는데 성공하였다.
    특히, 예외 상황에 대해 혼자 try ~ catch를 생각해서
    예외처리까지 완료한 것이 좋은 점이었다.
-   
+    
 	 import java.util.*;
 
 class Solution {
