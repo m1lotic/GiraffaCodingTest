@@ -148,10 +148,11 @@ class Solution {
 	public int[] solution(String[] keymap, String[] targets) {
 		int[] answer = new int[targets.length];
 		int tmp = 0; // 임시저장값
-		Map<Character, Integer> alphabet = new HashMap<>(); // 알파벳 저장할 자리
+		Map<Character, Integer> alphabet = new HashMap<>(); // 알파벳 저장할 자리(A부터 Z까지 입력받을거임)
 		for (int i = 65; i <= 90; i++)
 			alphabet.put((char) i, 1000); // 최소값을 찾아나가기 위한 큰 값
 
+ 		// A부터 Z까지 keymap별로 몇 회를 입력해야 하는 지를 검사한다.
 		for (int i = 65; i <= 90; i++) // 알파벳 저장 최솟값
 		{
 
@@ -170,7 +171,8 @@ class Solution {
 				}
 			}
 		}
-		// target 검사
+		
+		// target에 해당하는 알파벳 값이 있는지 검사하고 정답 배열에 더한다.
 		for (int i = 65; i <= 90; i++) // 알파벳 저장 최솟값
 		{
 
@@ -184,6 +186,7 @@ class Solution {
 			}
 		}
 
+        // 정답 행렬에 1000 이상의 값(keymap에 없는 알파벳)이 있을 때 -1로 처리한다
 		for (int k = 0; k < answer.length; k++)
 			if (answer[k] >= 1000)
 				answer[k] = -1;
