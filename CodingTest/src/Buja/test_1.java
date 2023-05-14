@@ -10,18 +10,21 @@ public class test_1 {
 	//alt+방향키 : 코드 순서 바꾸기
 	
 	/* 1. 정수 num이 짝수일 경우 "Even"을 반환하고 홀수인 경우 "Odd"를 반환하는 함수, solution을 완성해주세요.
-	public static void main(String[] args) {
-		class Solution {
-		    public int solution(int n) {
-		        int answer = 0;
-		        for(int i=1; i<=n;i++)
-		        {
-		            if(n%i==0)
-		                answer +=i;
-		        }
-		        return answer; // test
-		    }	
-		}
+class Solution {
+    public String solution(int num) {
+        String answer = "";
+        num = Math.abs(num);
+        
+        if(num%2==1)
+            answer = "Odd";
+        else if(num%2==0)
+            answer = "Even";
+        else if(num==0)
+            answer = "Even";
+             
+        return answer;
+    }
+}
 	}
 	*/
 	
@@ -62,7 +65,7 @@ public class Solution {
         
         while(n>0)
         {
-            answer = answer + (n%10);
+            answer += (n%10);
             
                 n /= 10;
         }
@@ -86,6 +89,20 @@ public class Solution {
  */
 /*
 6. 자연수 뒤집어 배열로 만들기
+import java.util.*;
+
+class Solution {
+    public int[] solution(long n) {
+        int[] answer = new int[String.valueOf(n).length()];
+        String numString = Long.toString(n);
+        
+        for(int i =0 ;i<answer.length;i++)
+        {
+             answer[i] = Integer.parseInt(numString.substring(answer.length-i-1, answer.length-i));
+        }
+        return answer;
+    }
+}
 */
 	/* 7. 문자열 내 p와 y의 개수
 class Solution {
@@ -128,7 +145,7 @@ class Solution {
             }
         }
         return -1;
-    }
+    } 
 }
 */
 /*	9. 나머지가 1이 되는 수 찾기
