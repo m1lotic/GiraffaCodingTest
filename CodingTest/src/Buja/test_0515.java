@@ -51,4 +51,51 @@ public class test_0515 {
 	}
 */
 	
+	// 최소직사각형
+	/* 해결일 : 5월 17일
+	   문제점 : 이 부분은 완전탐색이라고 하지
+	           그렇게 해결을 해보았다
+	           결국 모든 크기의 명함을 수납하려면
+	           여러 명함 중 가로가 가장 긴거
+	           세로가 가장 긴거 이런식으로 처리해야하는데,
+	           어떤 명함들은 가로가 길고, 어떤 명함들은 세로가 기므로
+	           가로가 가장 길게끔 통일해준다.
+	           그리고 세로 부분에서 가장 긴 부분을 체크해서
+	           넓이를 가로*세로로 하면 답이 나온다.
 	
+
+	class Solution {
+	    public int solution(int[][] sizes) {
+	        int answer = 0;
+	        int width=0; // 가로
+	        int height=0; // 세로
+	        int swap =0;
+	        int sizesLength= sizes.length;
+	        
+	        // 직사각형의 가장 큰 값을 찾아본다.([i]번째 사각형별로 가로가 긴쪽오도록)
+	        for(int i=0;i<sizesLength;i++)
+	        {
+	                if(sizes[i][0]<sizes[i][1]) // 세로가 더 길면
+	                {
+	                    swap = sizes[i][0];  
+	                    sizes[i][0] = sizes[i][1];  
+	                    sizes[i][1] = swap; // 가로랑 세로값을 바꿔서 가로가 길게 한다
+	                }
+	        }
+	        
+	        
+	        // [i]번째 직사각형의 가로와 세로의 길이를 비교한다
+	        // 결국 직사각형의 (가로, 세로) 각각 가장 큰 값이 우리가 찾는 그 값이니까
+	        // 어느 직사각형인지 상관없다. 직사각형 중 가장 큰 (가로/세로) 부분만 찾으면 해결된다
+	        for(int i=0;i<sizesLength;i++)
+	        {
+	                if(sizes[i][0]>width)  width=sizes[i][0];
+	                if(sizes[i][1]>height) height=sizes[i][1];
+	        }
+	        
+	        answer = width*height;
+	        
+	        return answer;
+	    }
+	}
+	*/
