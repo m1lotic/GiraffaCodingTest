@@ -99,3 +99,29 @@ public class test_0515 {
 	    }
 	}
 	*/
+
+	// 비밀지도
+	/* 해결일 : 5월 20일
+	   문제점 : answer2[i]  부분이 많이 복잡한데, 
+	           어쩔수 없는 부분이 있다.
+	           처음에는 첫글자가 0인 부분이 처리가 안됐는데
+	           String.format을 사용해서 자리수를 채웠다
+	           내가 이걸 스스로 생각했느냐?
+	           Chatgpt를 썼지..
+	
+
+	class Solution {
+	    public String[] solution(int n, int[] arr1, int[] arr2) {
+	        String[] answer2 = new String[n]; // 합치기용
+	        String[] answer3 = new String[n];// 글자 합치기용
+
+	         //2진수 비트 합치기
+	        for(int i=0;i<n;i++){
+	            // 010 같이 첫글자가 0일때 0만큼 채워넣어야해서 String.format 사용
+	            answer2[i] = String.format("%0" + n + "d", Long.parseLong(Long.toBinaryString(arr1[i] | arr2[i])));
+	        }
+	        //2진수 글자 합치기
+	        for(int i=0;i<n;i++)  answer3[i] = answer2[i].replace('1','#').replace('0',' ');
+	        return answer3;
+	    }
+	}*/
