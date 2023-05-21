@@ -108,5 +108,42 @@ public class test_4 {
 //
 //        return "Yes";
 //    }
-	 
+	
+	//5. 네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 
+	// 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다.
+	// 지도는 한 변의 길이가 n인 정사각형 배열 형태로, 각 칸은 "공백"(" ") 또는 "벽"("#") 두 종류로 이루어져 있다.
+	
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+    String[] answer = new String[n];
+        String x;
+
+      for(int i = 0 ; i < n ; i++){
+          x = String.format("%16s", Integer.toBinaryString(arr1[i] | arr2[i])); // 2진수 - 10진수 변형, 최대 16까지.
+          x = x.substring(x.length() - n); 
+          x = x.replaceAll("1", "#");
+          x = x.replaceAll("0", " ");
+          answer[i] = x;
+      }
+
+      return answer;
+  }
+    
+    //6. 가장 긴 가로 길이와 세로 길이가 각각 80, 70이기 때문에 80(가로) x 70(세로) 크기의 지갑을 만들면 모든 명함들을 수납할 수 있습니다. 
+    // 하지만 2번 명함을 가로로 눕혀 수납한다면 80(가로) x 50(세로) 크기의 지갑으로 모든 명함들을 수납할 수 있습니다. 이때의 지갑 크기는 4000(=80 x 50)입니다.
+    // 모든 명함의 가로 길이와 세로 길이를 나타내는 2차원 배열 sizes가 매개변수로 주어집니다. 모든 명함을 수납할 수 있는 가장 작은 지갑을 만들 때, 지갑의 크기를 return 하도록 solution 함수를 완성해주세요.
+    class Solution {
+        public int solution(int[][] sizes) {
+        int answer = 0;
+        int max_w=0;
+        int max_h=0;
+        for(int i=0;i<sizes.length;i++){
+            int w=Math.max(sizes[i][0],sizes[i][1]);
+            int h=Math.min(sizes[i][0],sizes[i][1]);
+            max_w=Math.max(max_w,w);
+            max_h=Math.max(max_h,h);
+        }
+        answer=max_w*max_h;
+        return answer;
+        }
+}
 }
