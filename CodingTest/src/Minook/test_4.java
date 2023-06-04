@@ -146,4 +146,20 @@ public class test_4 {
         return answer;
         }
 }
+    
+    //7. 문자열 s에는 공백으로 구분된 숫자들이 저장되어 있습니다. str에 나타나는 숫자 중 최소값과 최대값을 찾아 이를 "(최소값) (최대값)"형태의 문자열을 반환하는 함수, solution을 완성하세요.    
+    class Solution {
+    public String solution(String s) {
+    String[] array = s.split(" ");
+    int[] numbers = new int[array.length];
+    
+    for (int i = 0; i < array.length; i++) {
+        numbers[i] = Integer.parseInt(array[i]);
+    }
+    
+    Arrays.sort(numbers);
+    
+    return numbers[0] + " " + numbers[numbers.length-1];
+}
+    }
 }
