@@ -162,4 +162,27 @@ public class test_4 {
     return numbers[0] + " " + numbers[numbers.length-1];
 }
     }
+    
+    //처음 라운드에서 A번을 가진 참가자는 경쟁자로 생각하는 B번 참가자와 몇 번째 라운드에서 만나는지 return 하는 solution 함수를 완성해 주세요. 단, A번 참가자와 B번 참가자는 서로 붙게 되기 전까지 항상 이긴다고 가정합니다.
+    // N : 21 이상 220 이하인 자연수 (2의 지수 승으로 주어지므로 부전승은 발생하지 않습니다.)
+    // A, B : N 이하인 자연수 (단, A ≠ B 입니다.)
+    class Solution
+    {
+        public int solution(int n, int a, int b)
+        {
+            int answer = 0;
+
+            //a,b 둘 중 어떤게 크든 결과는 상관 없다. 같아질때까지 나누기
+            while(a!=b){
+                a = (a+1) / 2;
+                b = (b+1) / 2;
+                
+                //횟수증가
+                answer++;
+            }
+
+            return answer;
+        }
+    }
+    
 }
