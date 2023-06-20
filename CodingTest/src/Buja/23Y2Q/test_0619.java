@@ -27,6 +27,9 @@ public class test_0619 {
             사실 내가 이 부분을 전부 구글에서 찾아보았다. 얼마나 올바른 자료를 찾아서
             정확하게 구현하는 지를 아는것도 중요하다.
             처음부터 끝까지 내가 구현해야 하는 경우는 없으니
+            
+            그 외에 Integer.bitCount 도 있다고 한다.(비트가 true인 개수를 찾는 함수)
+            
 
 class Solution {
   public int solution(int n) {
