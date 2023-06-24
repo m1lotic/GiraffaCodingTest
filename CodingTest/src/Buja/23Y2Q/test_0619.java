@@ -50,3 +50,37 @@ class Solution {
       return answer;
   }
 }*/
+	
+	// 피보나치 수열
+	/* 해결일 : 6월 24일
+	   문제점 : 이 문제를 처음에 재귀 생각하고 푸려고 했는데
+	           재귀를 쓰기엔 숫자가 너무 크더라
+	           그래서 재귀를 안쓰고 하려는데도 이상해서 생각해보니까
+	           수학의 사칙연산에는 분배법칙이 성립한다는 사실이 있었다.
+	           즉, (a+b)%c = ((a%c) + (b%c))%c 가 된다
+	           그러면 이 문제에서 왜 열심히 %c 를 했을까?
+	           왜냐면 피보나치의 수는 너무커서 int로도 long으로도 감당 안된다
+	           그럴바에 분배법칙 성립하게 하면 작은 수로 처리하니
+	           처리속도가 빠를 수 밖에 없다
+	           테스트 14 기준으로 5ms니 빠르잖아?
+	           막상 해보니 재귀로도 가능할 것 같다
+    
+	           
+	class Solution {
+	        
+	    public int solution(int n) {
+	        int answer = 1;
+	        int fibo_One = 0;
+	        int fibo_Two = 1;
+	        
+	        for(int i=2;i<n;i++){
+	            fibo_One = fibo_Two;
+	            fibo_Two = (answer%1234567);
+	            answer  = ((fibo_One%1234567) + (fibo_Two%1234567))%1234567;            
+	            }
+	        
+	        
+	        return answer;
+	    }
+	}
+	*/       
