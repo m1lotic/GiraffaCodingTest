@@ -100,3 +100,105 @@ class Solution {
         return answer;
     }
 }      
+
+/* 백업용 코드
+for(int i=2;(n-i)>i;i++)
+        {
+            for(int j=1;j<i+1;j++)
+            fact_one *= (n-j);
+          //  System.out.println("분자테스트 : "+fact_one);
+            for(int k=1;k<=i+1;k++) fact_two *= k; // ex) 1*2, 1*2*3
+         //   System.out.println("분모 : "+fact_two);
+            combination = fact_one/fact_two;
+        //    System.out.println("더할 값: "+combination);
+            answer += combination;
+            
+            //팩토리얼 6c1 5c2 같은거
+            //param : 첫숫자(6) 몇번 곱해야 하나?(1) 
+            
+            factorial()
+            
+            
+            fact_one=1;
+            fact_two=1;
+            
+        }
+        */
+
+/* 백업코드 2
+   public long factorial(int n, int i, int k) {
+        
+        long result=n;
+        int  cnt_N = n-1;
+        // 돌리는 횟수
+        
+        if(k==1){
+            for(int j=1;j<i;j++)
+        {
+            result *= cnt_N;
+            cnt_N--;
+                
+            //    System.out.print(j +" ");
+        }
+     //   System.out.println(n+" 기준 "+ i+"번 돌린 결과값 "+result);
+        if(result==0) return 1;
+        
+        return result;
+        }
+        
+        if(k==2){
+            cnt_N=n;
+            for(int j=1;j<=i;j++)
+        {
+            result *= cnt_N;
+            cnt_N++;
+        }
+       // System.out.println(n+" 기준 "+ i+"번 돌린 결과값 "+result);
+        if(result==0) return 1;
+        
+        
+        }
+        return result;
+    }
+*/
+
+/*      백업코드3(solution 메소드)
+long answer = 1;
+        long fact_one = 1;
+        long fact_two = 1;
+        long combination = 0;
+        long origin_N = n; // N값 따로 수집
+        int i=0;
+        
+        // 일반화 식 1+nC1 + (n-1)C2 + (n-2)C3+... 
+        // 단, C우측 숫자가 (n-i)보다 커질수는 없음
+        
+        
+        if(n==1) return 1;
+        if(n==2) return 2;
+        if(n==3) return 3;
+        
+        answer += n-1;
+        
+        // 4c2가 처음 즉 분자는 4*3=12, 분모는 2*1=2
+        for(i=2;i<origin_N;i++)
+        {        
+            //팩토리얼 6c1 5c2 같은거
+            //param : 첫숫자(6) 몇번 곱해야 하나?(1) 
+            
+            if(n>i)
+            {
+           // System.out.println(n-2+"C"+i);
+            fact_one=factorial(n-2, i, 1);
+            fact_two=factorial(1  , i, 2);
+            
+            answer+= fact_one/fact_two;
+          //  System.out.println(answer);
+            n--;
+            }
+            
+            
+            
+        }
+        
+        */
