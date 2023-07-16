@@ -202,5 +202,57 @@ public class test_4 {
     	    }
     	}
     
+    //멀리 뛰기를 했을 때 1번에 1칸 또는 2칸 멀리뛰기 가능, n칸을 이동해야 할 때 끝에 도달 하는 방법을 구하자. - 동적계획법(dp 알고리즘)
+    class Solution {
+    	  public long solution(int n) {
+    	      int[] answer = new int[2001];
+    	      answer[1] = 1;
+    	      answer[2] = 2;
+    	      for(int i=3; i<2001; i++){
+    	          answer[i] = (answer[i-2] + answer[i-1])% 1234567;
+    	      }
+    	      return answer[n];
+    	  }
+    	}
+    
+    //수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
+    //마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.
+    class Solution {
+        public String solution(String[] participant, String[] completion) {
+            String answer = "";
+            
+//            for(String ans1 : participant){
+//               boolean sw = true;
+//               for(String ans2 : completion){
+//                   if(ans1.equals(ans2)){
+//                       sw = false;
+//                   }
+//               }
+//                if(sw){
+//                    answer = ans1;
+//                    break;
+//                }
+//            }
+            
+            HashMap<String, Integer> map = new HashMap<>();
+
+            for (String player : participant){
+                map.put(player, map.getOrDefault(player, 0) + 1);}
+            for (String player : completion){
+                map.put(player, map.get(player) - 1); }
+     
+                Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+
+            while(iter.hasNext()){
+                Map.Entry<String, Integer> entry = iter.next();
+                if (entry.getValue() != 0){
+                    answer = entry.getKey();
+                    break;
+                }
+            }
+            
+            return answer;
+        }
+    }
     
 }
