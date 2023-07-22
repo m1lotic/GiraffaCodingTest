@@ -41,3 +41,76 @@ class Solution {
 		return answer;
 	}
 }
+
+//괄호 회전하기
+//7월 23일 01시 37분 미해결
+//미해결 사유 : stack를 사용하지 않고 풀고 있는데
+//          stack 미고려한 예외 케이스 처리가 불가한 상황
+//          해결시간 초과로 미해결 처리
+
+import java.util.*;
+
+class Solution {
+	public int solution(String s) {
+		int answer = 0;
+		String new_s = s;
+		int length = s.length();
+		// 1[ 2( 3{ 4] 5) 6} 숫자로 바꾼다
+		new_s = new_s.replace("[", "1").replace("(", "2").replace("{", "3")
+					 .replace("]", "4").replace(")", "5").replace("}", "6");
+		int[] count = new int[6];
+
+		// 단일 조건 검사
+		if (length == 1) {
+			if (Integer.parseInt(new_s) < 4)
+				return 1;
+			if (Integer.parseInt(new_s) >= 4)
+				return 0;
+		}
+
+		for (int i = 0; i < length; i++) {
+
+			for (int j = 0; j < length - 1; j++) {
+				count[Integer.parseInt(new_s.substring(j, j + 1)) - 1] += 1;
+				if (count[0] < count[3] || count[1] < count[4] || count[2] < count[5]) {
+					// System.out.println("틀린상황");
+					answer -= 1;
+					break;
+				}
+				// {()}는 가능 {(})는 불가
+				// if()
+			}
+			answer += 1;
+			Arrays.fill(count, 0);
+
+			new_s = new_s.substring(1, length) + new_s.substring(0, 1);
+
+			// System.out.println(new_s);
+		}
+		return answer;
+	}
+}
+/*
+          if(Integer.parseInt(test_new_s.substring(0,1))>=4)
+          {
+              answer +=1;
+              continue;
+          }
+             if(test_new_s.substring(j,j+1).equals("1")){
+             test_new_s=test_new_s.replaceFirst("1","");
+             test_new_s=test_new_s.replaceFirst("4","");
+                 k+=1;
+             }
+             
+             if(test_new_s.substring(j,j+1).equals("2")){
+             test_new_s=test_new_s.replaceFirst("2","");
+             test_new_s=test_new_s.replaceFirst("5","");
+                  k+=1;
+             }
+             
+             if(test_new_s.substring(j,j+1).equals("3")){
+             test_new_s=test_new_s.replaceFirst("3","");
+             test_new_s=test_new_s.replaceFirst("6","");
+                  k+=1;
+             }
+             */
