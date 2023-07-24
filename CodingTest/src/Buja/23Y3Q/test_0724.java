@@ -48,7 +48,7 @@ class Solution {
 			System.out.println("젤 위에있는 값은 : " + stack.peek()); // 스택값 검사
 		}
 
-		// 무한루프방지
+		// speed의 진행률 반영(무한루프 방지 포함)
 		while (count < 100) {
 			// stack에 진행도 더하기
 			for (int i = 0; i < length + 1 - count_save; i++) {
