@@ -98,11 +98,10 @@ class Solution {
 				count = 0;
 				break;
 			} finally {
-				// System.out.println("코드 동작중");
-				if (count >= 1) {
+				// count가 0인 경우 정답 list에 add 되지 않게 한다(진도가 1번은 나와야 하므로)
+				if (count >= 1) {  
 					answer.add(count);
 					count_save += count;
-					// System.out.println(count_save);
 					count = 0;
 				}
 
