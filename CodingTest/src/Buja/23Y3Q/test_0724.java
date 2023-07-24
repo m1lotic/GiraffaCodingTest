@@ -29,6 +29,27 @@ public class test_0724 {
             코드가 될 듯 말 듯 해가지고 그냥 이시간까지 구현했다.
 */
 
+
+//  기능개발
+/*  해결일 : 7월 25일 오전 0시 45분
+    문제점 : 메소드 한 개로 모듈화해서 구현을 시도했다.
+            솔직히 이정도 길이는 메소드 하나에 할 게 아니고
+            메소드 여러개로 만들어야 한다. 실력쌓이면 그렇게 할 예정
+            
+            일단 정답의 길이는 가변적이므로 ArrayList 하나 만들고,
+            스택 적혀있으니 스택으로 풀자고 해서 스택했다.
+            처음에는 HashMap으로 하려고 했는데, 코드가 꼬일거 같아서
+            그냥 스택으로 하라니 스택으로 했다.
+            먼저 스택에 진행도 값을 밀어넣고
+            맨 위에 있는 스택부터 스피드값 넣었다.
+            그렇게 하면서 맨 위가 100이면 스택을 하나씩 제거시켰다.
+            
+            근데, 스택이 0개가 되면 오류가 나게 된다. 스택이 텅 비었다면서
+            그 부분을 예외처리해서 0개가 되면 오류가 아니고 값을 출력할 수 있도록 해주었다.
+            이 시간까지 할 생각은 없었는데
+            코드가 될 듯 말 듯 해가지고 그냥 이시간까지 구현했다.
+*/
+
 import java.util.*;
 
 class Solution {
@@ -53,7 +74,8 @@ class Solution {
 			// stack에 진행도 더하기
 			for (int i = 0; i < length + 1 - count_save; i++) {
 				try {
-					stack.set(length - i - count_save, stack.elementAt(length - i - count_save) + speeds[i + count_save]);
+					stack.set(length - i - count_save,
+							stack.elementAt(length - i - count_save) + speeds[i + count_save]);
 					System.out.println("변경된 스택값: " + stack.elementAt(length - i - count_save));
 					System.out.println(">>>>>디버깅 현재 index>>>> " + (length - i));
 				} catch (EmptyStackException e) {
@@ -75,14 +97,15 @@ class Solution {
 				answer.add(count);
 				count = 0;
 				break;
-			}
+			} finally {
+				// System.out.println("코드 동작중");
+				if (count >= 1) {
+					answer.add(count);
+					count_save += count;
+					// System.out.println(count_save);
+					count = 0;
+				}
 
-			// count가 0인 값이 들어갈 수 없도록 조치(반드시 1번은 작업진도가 반영되어야 하므로)
-			if (count >= 1) {
-				answer.add(count);
-				count_save += count;
-				// System.out.println(count_save);
-				count = 0;
 			}
 
 		}
