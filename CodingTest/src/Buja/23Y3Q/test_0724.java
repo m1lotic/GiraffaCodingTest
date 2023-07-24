@@ -77,7 +77,7 @@ class Solution {
 				break;
 			}
 
-			// System.out.println("코드 동작중");
+			// count가 0인 값이 들어갈 수 없도록 조치(반드시 1번은 작업진도가 반영되어야 하므로)
 			if (count >= 1) {
 				answer.add(count);
 				count_save += count;
