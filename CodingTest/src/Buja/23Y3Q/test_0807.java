@@ -69,3 +69,77 @@ public class test_0807 {
 	                return answer;
 	    }
 	}
+
+
+
+// 튜플
+/* 해결일 : 8월 13일 16시 39분
+   문제점 : 이 코드에 사용된 자바 기능들에 대한 공부가 많이 부족해서
+           찾아보면서 짜는데도 잘 모르겠다.
+           
+           급하게 공부하면서 놓쳤던 자바기능을
+           별도로 공부할 수 있도록 날짜를 잡아서
+           따로 공부할 필요가 있다.
+           
+           찾으면서 했기 때문에 별도의 문제점 코멘트 작성은 어렵다.
+           
+*/
+
+import java.util.*;
+
+class Solution {
+    public int[] solution(String s) {
+        
+        // }{를 기준으로 배열로 나누기
+        String[] s_Splited =s.split("\\},\\{");
+        
+        // 배열 크기가 작은 것 부터 정렬
+        Arrays.sort(s_Splited,Comparator.comparingInt(split -> split.replaceAll("[{}]", "").split(",").length));
+        
+        // 순서를 고려하면서 중복 안되게 저장하도록 선언
+        Set<Integer> resultSet = new LinkedHashSet<>();
+        
+        // 분할된 "튜플"을 추출하고 숫자를 추가
+        for(String split : s_Splited){
+             String[] stringNumbers = split.replaceAll("[{}]", "").split(",");
+            
+            for (String stringNumber : stringNumbers) {
+                resultSet.add(Integer.parseInt(stringNumber));
+            }
+            
+        }
+        
+        // 결과 배열 생성
+        int[] answer  = new int[resultSet.size()];
+        int idx = 0;
+        // resultSet에 있는 숫자를 최종배열에 저장
+        for(int number : resultSet){
+            answer[idx++] = number;
+        }
+
+        
+        return answer;
+    }
+}
+
+/*
+       // 스트링을 배열화 한다
+        for(int i=2;i<s.length()-2;i++)
+        {
+            while(String.valueOf(s.charAt(i)).equals(",")) 
+            {
+                arr_cnt_2++;
+                i++;
+            }
+             while(String.valueOf(s.charAt(i)).equals("{")) i++;
+             while(String.valueOf(s.charAt(i)).equals("}"))
+            {
+                arr_cnt++;
+                i++;
+                arr_cnt_2 = 0;
+            }
+            tupleArray[arr_cnt][arr_cnt_2] = Integer.parseInt(String.valueOf(s.charAt(i)));
+            System.out.println((s.valueOf(i)));
+
+        }
+        */
