@@ -81,3 +81,75 @@ public class test_0814 {
 	    }
 	}
 	*/
+	
+	// 실패율
+	/*  해결일 : 8월 20일 16시 58분
+    문제점 : 이 문제가 어떻게 레벨 1인지를 모르겠다
+    다른 건 문제가 없는데 마지막에 순위를 어떻게 표현할 것인지
+    실패율은 나왔는데, 순위 때문에 많이 힘들었다
+    전통적인 버블 소트를 써서 했다.
+*/
+	/*
+import java.util.*;
+
+class Solution {
+    public int[] solution(int N, int[] stages) {
+        int[] failed = new int[N];
+        int[] current = new int [N];
+        int[] answer = new int[N];
+        double[] failed_Percent = new double[N];
+        int stage_Idx = 0;
+        
+        // 정답 행렬에 몇스테이지인지 수동 입력(순위 비교 위함)
+        for(int i = 0; i<N;i++) answer[i] = i+1;
+        
+        
+        // 클리어 기준 회차 조회
+        for(int stage = 0; stage < stages.length; stage++)  stages[stage]--;
+        
+        // index가 0(1스테이지)부터 검색하기 위해
+        Arrays.sort(stages);
+        
+        // 스테이지에 도달한 플레이어 수(player:플레이어의 현 스테이지)
+        for(int stage = 0; stage < N; stage++){
+            for(int player = 0; player < stages.length; player++){
+             if(stages[player]>=stage) current[stage]++;
+            }
+        }
+        
+        // 스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 
+       for(int stage = 0; stage < N; stage++){
+            for(int player = stage_Idx; player < stages.length; player++){
+             if(stages[player]<=stage) failed[stage]++;
+            }
+           stage_Idx += failed[stage];
+           
+        }
+        
+        // 실패율 계산
+         for(int stage = 0; stage < N; stage++){
+             failed_Percent[stage] = (double)failed[stage] / (double)current[stage];
+             System.out.println(failed_Percent[stage]);
+         }
+        
+        double tmp=0; // 순위 비교 임시값
+        int  tmp2=0;
+        
+        // 순위 계산(버블 정렬)
+        for (int stage = 0; stage < N - 1; stage++) {
+            for (int i = 0; i < N - stage - 1; i++) {
+                if (failed_Percent[i] < failed_Percent[i+1]) {
+                    tmp = failed_Percent[i];
+                    failed_Percent[i] = failed_Percent[i+1];
+                    failed_Percent[i+1] = tmp;
+
+                    tmp2 = answer[i];
+                    answer[i] = answer[i+1];
+                    answer[i+1] = tmp2;
+                }
+            }
+        }
+        
+        return answer;
+    }
+}*/
