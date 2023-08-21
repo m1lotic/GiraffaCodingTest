@@ -11,8 +11,8 @@ public class test_0821 {
 	
 	// 성격 유형 검사하기
 
-	/*  해결일 : 8월 21일 20시 54분
-    문제점 : 이 문제는 저번주 실패율보다 쉽다
+/*	  해결일 : 8월 21일 20시 54분
+     문제점 : 이 문제는 저번주 실패율보다 쉽다
             근데 성공률이 왜 낮은가..
             
             이게 국어가(요구사항이) 길다 보니까
@@ -32,8 +32,6 @@ public class test_0821 {
             
 import java.util.*;
 class Solution {
-   
-
     // 성격 점수를 계산할 hashMap(전역 변수)
     HashMap<String,Integer> personalMap = new HashMap<>();
     
@@ -83,3 +81,32 @@ class Solution {
     }
 }
 */
+
+	// 서울에서 김서방 찾기
+	/* 해결일 : 8월 21일 9시 19분
+	   문제점 : 평소처럼 i를 0부터 순회하는 for 문 만들면
+	           1분만에 풀리는데
+	           그렇게 하지 않고 람다식으로 하려고 시도했다.
+	           나중에 보니까 return에 answer 할 필요없이
+	           그냥 바로 return해주면 되더라
+	           단, 람다식이니 int 형 변수 하나는 필요하다.
+	           그러면 결국 거기서 거기 아닌가?
+	
+	import java.util.*;
+
+	class Solution {
+	    public String solution(String[] seoul) {
+	        String answer = "";
+	        int idx = 0;
+	        for(String count : seoul){
+	            if(count.equals("Kim")){
+	                answer +="김서방은 ";
+	                answer +=idx;
+	                answer +="에 있다";
+	                break;
+	            }
+	            idx++;
+	        }
+	        return answer;
+	    }
+	}*/
