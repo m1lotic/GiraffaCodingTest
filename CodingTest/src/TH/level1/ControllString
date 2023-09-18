@@ -1,0 +1,27 @@
+package TH.level1;
+
+public class ControllString {
+    public boolean solution(String s) {
+//        if( s.length() == 4 || s.length() == 6){
+//            try{
+//                Integer.parseInt(s);
+//                return true;
+//            } catch(NumberFormatException ignored){
+//            }
+//        }
+//        return false;
+                // ^ <- 패턴의 시작,  & <- 패턴의 끝, * <- 0회이상 반복
+                // (?: ) <- 정규 표현식 그룹
+                // (?: A | B ) <- 그룹 A이거나 B인가
+                // [0-9] <- 0~9까지의 숫자로 이루어져 있다
+        return s.matches("^(?:[0-9]{4}|[0-9]{6})$");
+                
+    }
+    public static void main(String[] args) {
+        ControllString cs = new ControllString();
+        System.out.println(
+                cs.solution("a234"));
+        System.out.println(
+                cs.solution("1234"));
+    }
+}
