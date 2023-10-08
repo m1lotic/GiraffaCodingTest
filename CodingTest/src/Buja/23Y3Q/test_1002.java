@@ -40,17 +40,58 @@ public class test_1002 {
 	                     // 가장자리 크기 찾는 공식대로 값 계산
 	                    answer[1] = i+2;
 	                    answer[0] = (brown+yellow)/answer[1];
-	                         System.out.println("1번"+sum+" "+ i);
+	                 //        System.out.println("1번"+sum+" "+ i);
 	                    }
 	                    else{
 	                    answer[0] = i+2;
 	                    answer[1] = (brown+yellow)/answer[0];
-	                  System.out.println("2번"+sum+" "+ i);
+	                //  System.out.println("2번"+sum+" "+ i);
 	                    }
 	                }
 	            }
 
 	        }
+	        
+	        return answer;
+	    }
+	}
+	
+	
+	// 제일 작은 수 제거하기
+	/* 해결일 : 10월 8일 오후 12시 36분
+	   문제점 : 배열에서 가장 작은 값을 제거하는건데
+	            처음에 테스트 케이스를 잘 못 만들어서 해맸다
+	            특이한 점은 stream을 활용해서 최솟값을 찾아서
+	            그 값을 제거시켜줬다는 점이다
+	            answer의 배열 크기가 하나가 작지만
+	            그래도 arr배열의 값은 다 있기 때문에 끝까지 검사해야 하는 것이 주의할 점이다
+
+	*/
+	import java.util.*;
+	class Solution {
+	    public int[] solution(int[] arr) {
+	        int[] answer;
+	        // 또는 arraylist 처리도 됨
+	        if(arr.length!=1)     answer = new int[arr.length-1];
+	        else{
+	            answer = new int[1];
+	            answer[0] = -1;
+	            return answer;
+	        }
+	        
+	        
+	        // 스트림을 활용한 배열 내 최솟값을 찾고 정수로 출력
+	        int skip=Arrays.stream(arr).min().getAsInt();
+	        // skip값을 반영했는지 여부를 검사하는 변수값
+	        int j=0;
+	        
+	        // 원 배열 반영
+	        for(int i=0;i<arr.length;i++)
+	        {
+	            if(arr[i]==skip) j=1;
+	            else answer[i-j] = arr[i];
+	        }
+	        
 	        
 	        return answer;
 	    }
