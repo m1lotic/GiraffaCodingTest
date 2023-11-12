@@ -29,14 +29,13 @@ public class MiningMinerals {
         List<String> pickString = new ArrayList<>();
         for (int i = 0; i < picks.length; i++) {
             pickNum += picks[i];
-            for(int j = 0; j < picks[i]; j++){
-                pickString.add(switch (i) {
-                    case 0 -> "DIAMOND";
-                    case 1 -> "IRON";
-                    case 2 -> "STONE";
-                    default -> throw new RuntimeException("이상한 광물이 있는데요?");
-                });
-            }
+            // picks[i]만큼 반복, switch문의 결과를 add
+            pickString.addAll(Collections.nCopies(picks[i], switch (i) {
+                case 0 -> "DIAMOND";
+                case 1 -> "IRON";
+                case 2 -> "STONE";
+                default -> throw new RuntimeException("이상한 광물이 있는데요?");
+            }));
         }
         // 가진 광물을 모두 캘 수 있는 곡괭이 수
         int mineNum = minerals.length/5 + 1;
