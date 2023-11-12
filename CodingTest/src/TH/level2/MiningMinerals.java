@@ -16,11 +16,8 @@ package TH.greedy;
 //  광물들의 순서를 나타내는 문자열 배열 minerals가 매개변수로 주어질 때,
 //  마인이 작업을 끝내기까지 필요한 최소한의 피로도를 return 하는 solution 함수를 완성
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.function.BiFunction;
+import java.util.*;
+import java.util.function.Function;
 
 public class MiningMinerals {
     public int solution(int[] picks, String[] minerals) {
@@ -91,45 +88,28 @@ public class MiningMinerals {
 
     // 각 곡괭이에 따른 광물 5개에 대한 피로도 계산
     public enum Pickax{
-        DIAMOND ((x, y) -> {
-            int fatigue = 0;
-            for (String mine : x)
-                fatigue += switch (mine) {
-                    case "diamond"  -> 1;
-                    case "iron"     -> 1;
-                    case "stone"    -> 1;
-                    default         -> 0;
-                };
-            return fatigue;
-        }),
-        IRON    ((x, y) -> {
-            int fatigue = 0;
-            for (String mine : x)
-                fatigue += switch (mine) {
-                    case "diamond"  -> 5;
-                    case "iron"     -> 1;
-                    case "stone"    -> 1;
-                    default         -> 0;
-                };
-            return fatigue;
-        }),
-        STONE   ((x, y) -> {
-            int fatigue = 0;
-            for (String mine : x)
-                fatigue += switch (mine) {
-                    case "diamond"  -> 25;
-                    case "iron"     -> 5;
-                    case "stone"    -> 1;
-                    default         -> 0;
-                };
-            return fatigue;
-        });
+        DIAMOND (x -> calculateFatigue(x, 1, 1, 1)),
+        IRON    (x -> calculateFatigue(x, 5, 1, 1)),
+        STONE   (x -> calculateFatigue(x, 25, 5, 1));
 
-        Pickax(BiFunction<String[], Integer, Integer> expression){this.expression = expression;}
-        private BiFunction<String[], Integer, Integer> expression;
+        Pickax(Function<String[], Integer> expression){this.expression = expression;}
+        private Function<String[], Integer> expression;
 
         public Integer fatigue(String[] minerals, int y){
-            return this.expression.apply(minerals, y);
+            return this.expression.apply(minerals);
+        }
+
+        private static int calculateFatigue(String[] minerals, int diamond, int iron, int stone) {
+            int fatigue = 0;
+            for (String mine : minerals) {
+                fatigue += switch (mine) {
+                    case "diamond" -> diamond;
+                    case "iron" -> iron;
+                    case "stone" -> stone;
+                    default -> 0;
+                };
+            }
+            return fatigue;
         }
     }
 
