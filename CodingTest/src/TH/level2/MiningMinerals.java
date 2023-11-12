@@ -87,7 +87,7 @@ public class MiningMinerals {
     }
 
     // 각 곡괭이에 따른 광물 5개에 대한 피로도 계산
-    public enum Pickax{
+    enum Pickax{
         DIAMOND (x -> calculateFatigue(x, 1, 1, 1)),
         IRON    (x -> calculateFatigue(x, 5, 1, 1)),
         STONE   (x -> calculateFatigue(x, 25, 5, 1));
