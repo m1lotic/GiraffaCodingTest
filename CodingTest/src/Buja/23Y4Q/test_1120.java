@@ -39,7 +39,7 @@ public class test_1120 {
 	        // 최댓값부터 비교
 	        for(int i=max;i>0;i--)
 	        {
-	            for(int j=0;j<len;j++)
+	            for(int j=0;j<len;j++) 
 	            {
 	                if(citations[j]>=i)     high++;
 	             //   System.out.println("값 : "+i+"기준 "+high+" "+low);
