@@ -113,3 +113,62 @@ class Solution {
         return answer;
     }
 }
+
+
+
+
+
+// ChatGPT 코드 리팩토링
+class Solution {
+    public int solution(String[] board) {
+        int o_cnt = 0;
+        int x_cnt = 0;
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i].charAt(j) == 'O') {
+                    o_cnt++;
+                } else if (board[i].charAt(j) == 'X') {
+                    x_cnt++;
+                }
+            }
+        }
+
+        if (o_cnt < x_cnt || o_cnt - x_cnt > 1) {
+            return 0;
+        }
+
+        if (checkWinningCondition(board, 'O') && o_cnt - 1 < x_cnt) {
+            return 0;
+        }
+
+        if (checkWinningCondition(board, 'X') && o_cnt > x_cnt) {
+            return 0;
+        }
+
+        return 1;
+    }
+
+    private boolean checkWinningCondition(String[] board, char player) {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i].equals(new String(new char[] { player, player, player }))) {
+                return true; // Check horizontal winning condition
+            }
+
+            if (board[0].charAt(i) == player && board[1].charAt(i) == player && board[2].charAt(i) == player) {
+                return true; // Check vertical winning condition
+            }
+        }
+
+        if (board[0].charAt(0) == player && board[1].charAt(1) == player && board[2].charAt(2) == player) {
+            return true; // Check diagonal winning condition
+        }
+
+        if (board[0].charAt(2) == player && board[1].charAt(1) == player && board[2].charAt(0) == player) {
+            return true; // Check reverse diagonal winning condition
+        }
+
+        return false;
+    }
+}
+	
